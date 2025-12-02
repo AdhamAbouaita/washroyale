@@ -1,0 +1,199 @@
+:root {
+    --game-width: 400px;
+    --game-height: 600px;
+    --primary-color: #333;
+    --ui-bg: rgba(0, 0, 0, 0.6);
+    --elixir-color: #d000d0;
+}
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+#main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+#game-container {
+    position: relative;
+    width: var(--game-width);
+    height: var(--game-height);
+    background-color: #000;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Top Bar */
+#top-bar {
+    pointer-events: auto;
+    padding: 10px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    width: 100%;
+}
+
+#timer {
+    font-size: 1.5rem;
+    color: #f0f0f0;
+    background: rgba(0,0,0,0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Bottom Bar - Now separate */
+#bottom-bar {
+    width: var(--game-width);
+    background: #323232;
+    padding: 10px;
+    border-top: 2px solid #555;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative; /* Context for next-card absolute pos if needed, though simpler to flex it */
+}
+
+#elixir-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+#elixir-bar-bg {
+    flex-grow: 1;
+    height: 10px;
+    background: #444;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #666;
+}
+
+#elixir-fill {
+    height: 100%;
+    background-color: var(--elixir-color);
+    transition: width 0.2s linear;
+}
+
+#card-hand {
+    display: flex;
+    justify-content: space-between; /* Distribute evenly */
+    align-items: center;
+    margin-top: 5px;
+    height: 90px;
+    padding: 0 5px;
+}
+
+.card-slot {
+    width: 65px;
+    height: 85px;
+    background-color: #444;
+    border: 2px solid #777;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    text-align: center;
+    color: #aaa;
+    margin: 0 2px; /* Small gap */
+}
+
+.card-slot:hover {
+    border-color: #fff;
+    transform: translateY(-5px);
+}
+
+.card-slot.active {
+    border-color: yellow;
+    box-shadow: 0 0 10px yellow;
+}
+
+/* Positioning "Next Card" */
+#next-card {
+    position: absolute;
+    bottom: 15px;
+    right: 10px; /* It might overlap the hand if not careful. Let's move it or style it better */
+    /* Actually, let's move it to the right of the elixir bar or above the hand */
+    /* But adhering to Clash Royale style, it's usually to the side. 
+       Given we have limited width (400px), let's put it inside the hand row or absolute.
+       The hand has 4 cards. 4 * 70px ~ 280px. We have space.
+    */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #222;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #444;
+}
+
+/* Adjust hand to leave room for next card */
+#bottom-bar {
+    display: grid;
+    grid-template-columns: 1fr 60px; /* Main hand area + Next card area */
+    grid-template-rows: auto auto;
+    gap: 5px;
+}
+
+#elixir-wrapper {
+    grid-column: 1 / -1;
+}
+
+#card-hand {
+    grid-column: 1 / 2;
+    justify-content: space-around; /* Even distribution */
+    margin: 0;
+}
+
+#next-card {
+    grid-column: 2 / 3;
+    position: static; /* flow naturally in grid */
+    font-size: 0.6rem;
+    background: none;
+    border: none;
+}
+
+.card-slot.mini {
+    width: 40px;
+    height: 55px;
+    border: 1px solid #555;
+}

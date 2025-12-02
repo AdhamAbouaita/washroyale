@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash Royale Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-wrapper">
+        <div id="game-container">
+            <!-- Game World -->
+            <canvas id="game-canvas"></canvas>
+
+            <!-- UI Overlay (Top only) -->
+            <div id="ui-layer">
+                <div id="top-bar">
+                    <div class="player-name">Enemy King</div>
+                    <div id="timer">03:00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar (Outside Canvas) -->
+        <div id="bottom-bar">
+            <div id="elixir-wrapper">
+                <span>Elixir</span>
+                <div id="elixir-bar-bg">
+                    <div id="elixir-fill" style="width: 50%;"></div>
+                </div>
+                <span id="elixir-value">5</span>
+            </div>
+            <div id="card-hand">
+                <!-- Cards will be injected here by JS -->
+                <div class="card-slot empty"></div>
+                <div class="card-slot empty"></div>
+                <div class="card-slot empty"></div>
+                <div class="card-slot empty"></div>
+            </div>
+            <div id="next-card">
+                <span>Next</span>
+                <div class="card-slot mini empty"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
