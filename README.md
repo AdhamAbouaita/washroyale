@@ -41,5 +41,4 @@ It's a Real-Time Strategy (RTS) game where you deploy troops to destroy the enem
 
 **MIT License**. Steal this code. Use it. Make a billion-dollar mobile game. Just remember the little guys.
 
----
-*Made with ❤️ and ⌨️ by Adham.*
+
