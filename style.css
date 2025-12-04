@@ -153,7 +153,7 @@ canvas {
     bottom: 15px;
     right: 10px; /* It might overlap the hand if not careful. Let's move it or style it better */
     /* Actually, let's move it to the right of the elixir bar or above the hand */
-    /* But adhering to Clash Royale style, it's usually to the side. 
+    /* But adhering to Wash Royale style, it's usually to the side. 
        Given we have limited width (400px), let's put it inside the hand row or absolute.
        The hand has 4 cards. 4 * 70px ~ 280px. We have space.
     */

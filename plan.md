@@ -1,7 +1,7 @@
-# Clash Royale Clone - Technical Specification
+# Wash Royale Clone - Technical Specification
 
 ## 1. Project Overview
-This document outlines the technical architecture for a browser-based Real-Time Strategy (RTS) game mimicking core mechanics of "Clash Royale". The game features a vertical battlefield where two players (Human vs. Basic AI) deploy units from a deck of cards to destroy the opposing King Tower while defending their own. Matches are time-limited and driven by an Elixir resource system.
+This document outlines the technical architecture for a browser-based Real-Time Strategy (RTS) game mimicking core mechanics of "Wash Royale". The game features a vertical battlefield where two players (Human vs. Basic AI) deploy units from a deck of cards to destroy the opposing King Tower while defending their own. Matches are time-limited and driven by an Elixir resource system.
 
 ## 2. Technology Architecture
 
